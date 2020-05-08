@@ -2,7 +2,7 @@ package com.luojianhua.day1;
 
 import java.util.ArrayList;
 
-public class _Q3 {
+public class Main3 {
 
     /**
      * 一个很简单的思路，我们直接利用递归反转链表，然后遍历整个链表，将起添加进集合中

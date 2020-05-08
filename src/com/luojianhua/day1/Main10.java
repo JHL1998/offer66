@@ -6,7 +6,7 @@ package com.luojianhua.day1;
  *
  * 比如n=3时，2*3的矩形块有3种覆盖方法：
  */
-public class _Q10 {
+public class Main10 {
     /**
      * 与爬楼梯一样，当竖着放一块是，此时dp[i]=1+dp[i-1] 如果横着放两块 dp[i]=dp[i-2]+1
      * @param n
