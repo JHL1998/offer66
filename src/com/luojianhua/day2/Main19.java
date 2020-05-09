@@ -15,7 +15,7 @@ public class Main19 {
         int n=arr[0].length;
         boolean state[][]=new boolean[m][n];
         if(m==0) return new ArrayList<>();
-        //方向为右下左上
+       
         int []dx={-1,0,1,0};
         int []dy={0,1,0,-1};
         int x=0,y=0,d=1;
