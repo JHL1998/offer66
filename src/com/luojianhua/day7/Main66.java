@@ -1,4 +1,4 @@
-package com.luojianhua.day6;
+package com.luojianhua.day7;
 
 /**
  * 机器人的运动范围

@@ -1,4 +1,4 @@
-package com.luojianhua.day5;
+package com.luojianhua.day6;
 
 /**
  * 链表中环的入口节点

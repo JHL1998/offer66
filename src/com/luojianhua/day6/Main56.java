@@ -1,4 +1,4 @@
-package com.luojianhua.day5;
+package com.luojianhua.day6;
 
 /**
  * 删除链表中重复的节点

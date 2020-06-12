@@ -1,4 +1,4 @@
-package com.luojianhua.day6;
+package com.luojianhua.day7;
 
 /**
  * 矩阵中的路径

@@ -1,4 +1,4 @@
-package com.luojianhua.day5;
+package com.luojianhua.day7;
 
 public class TreeNode {
     int val;

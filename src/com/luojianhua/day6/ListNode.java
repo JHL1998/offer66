@@ -1,4 +1,4 @@
-package com.luojianhua.day5;
+package com.luojianhua.day6;
 
 public class ListNode {
     int val;
