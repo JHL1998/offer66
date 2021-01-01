@@ -1,45 +1,25 @@
 package com.luojianhua.day1;
 
 /**
- * 一只青蛙一次可以跳上1级台阶，也可以跳上2级。
- * 求该青蛙跳上一个n级的台阶总共有多少种跳法（先后次序不同算不同的结果）。
+ * create by luojianhua
+ * 剑指offer11、旋转数组的最小数字
  */
 public class Main8 {
-
     /**
-     * dp 自底向上
-     * @param n
+     * 二分法，画个草图一目了然
+     * @param nums
      * @return
      */
-    public int JumpFloor(int n) {
-        int dp[]=new int[n+1];
-        dp[0]=1;
-        dp[1]=1;
-        for(int i=2;i<=n;i++){
-            dp[i]=dp[i-1]+dp[i-2];
+    public int minArray(int[] nums) {
+        int n=nums.length-1;
+        while(n>0&&nums[0]==nums[n]) n--;
+        if(nums[0]<=nums[n]) return nums[0];
+        int l=0,r=n;
+        while(l<r){
+            int mid=(l+r)>>1;
+            if(nums[mid]<nums[0]) r=mid;
+            else l=mid+1;
         }
-        return dp[n];
+        return nums[l];
     }
 }
-
-class Main8_1{
-
-    /**
-     * 优化空间复杂度，与斐波那契数列类似
-     * @param n
-     * @return
-     */
-    public int JumpFloor(int n) {
-          if(n==0) return 1;
-          if(n<=2) return n;
-          int first=1;
-          int second=2;
-          for(int i=3;i<=n;i++){
-              int sum=first+second;
-              first=second;
-              second=sum;
-          }
-          return second;
-    }
-}
-

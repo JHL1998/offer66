@@ -1,30 +1,31 @@
 package com.luojianhua.day1;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Stack;
 
+/**
+ * create by luojianhua
+ * 剑指offer06、从尾到头打印链表
+ */
 public class Main3 {
-
     /**
-     * 一个很简单的思路，我们直接利用递归反转链表，然后遍历整个链表，将起添加进集合中
-     * @param listNode
+     * 利用栈将链表反转
+     * @param head
      * @return
      */
-    public ArrayList<Integer> printListFromTailToHead(ListNode listNode) {
-        ArrayList<Integer> res=new ArrayList<>();
-        ListNode node=reverse(listNode);
-        while(node!=null){
-            res.add(node.val);
-            node=node.next;
+    public int[] reversePrint(ListNode head) {
+        List<Integer> list=new ArrayList<>();
+        Stack<ListNode> stack=new Stack<>();
+        while(head!=null){
+            stack.push(head);
+            head=head.next;
         }
+        while(!stack.isEmpty()){
+            list.add(stack.pop().val);
+        }
+        int res[]=new int[list.size()];
+        for(int i=0;i<list.size();i++) res[i]=list.get(i);
         return res;
-
-    }
-    private ListNode reverse(ListNode head){
-
-        if(head==null||head.next==null) return  head;
-        ListNode newNode=reverse(head.next);
-        head.next.next=head;
-        head.next=null;
-        return newNode;
     }
 }

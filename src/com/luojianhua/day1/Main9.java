@@ -1,24 +1,37 @@
 package com.luojianhua.day1;
 
 /**
- * 一只青蛙一次可以跳上1级台阶，也可以跳上2级……它也可以跳上n级。
- * 求该青蛙跳上一个n级的台阶总共有多少种跳法。
+ * create by luojianhua
+ * 剑指offer12、矩阵中的路径
  */
 public class Main9 {
     /**
-     * dp[n]=2*dp[n-1];
-     * @param n
-     * @return
+     * 搜索题，简单的dfs+回溯
      */
-    public int JumpFloorII(int n) {
-        int dp[]=new int[n+1];
-        dp[0]=1;
-        dp[1]=1;
-        for(int i=2;i<=n;i++){
-            dp[i]=2*dp[i-1];
+    private int m,n;
+    public boolean exist(char[][] board, String word) {
+        m=board.length;
+        n=board[0].length;
+        for(int i=0;i<m;i++){
+            for(int j=0;j<n;j++){
+                if(dfs(i,j,board,0,word)) return true;
+            }
         }
-        return dp[n];
-
+        return false;
     }
-
+    private boolean dfs(int x,int y,char[][]board,int index,String word){
+        if(board[x][y]!=word.charAt(index)) return false;
+        if(index==word.length()-1) return true;
+        int dx[]={-1,0,1,0};
+        int dy[]={0,1,0,-1};
+        board[x][y]='.';
+        for(int k=0;k<4;k++){
+            int a=x+dx[k],b=y+dy[k];
+            if(a>=0&&a<m&&b>=0&&b<n){
+                if(dfs(a,b,board,index+1,word)) return true;
+            }
+        }
+        board[x][y]=word.charAt(index);
+        return false;
+    }
 }

@@ -1,33 +1,37 @@
 package com.luojianhua.day1;
 
 /**
- * 请实现一个函数，将一个字符串中的每个空格替换成“%20”。
- * 例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。
+ * create by luojianhua
+ * 剑指offer05、替换空格
  */
 public class Main2 {
     /**
-     * 直接利用java API
-     * @param str
+     *先统计空格的数量计算出新字符串的长度，然后依次替换即可
+     * @param s
      * @return
      */
-    public String replaceSpace(StringBuffer str) {
-        return String.valueOf(str).replace(" ","%20").toString();
+    public  String replaceSpace(String s) {
+           StringBuilder sb=new StringBuilder(s);
+           int count=0;
+           int len=s.length();
+           for(char c:s.toCharArray()){
+               if(c==' ')count++;
+           }
+           int newLen=len+count*2;
+           int i=len-1,j=newLen-1;
+           sb.setLength(newLen);
+           while(i>=0){
+               if(sb.charAt(i)==' '){
+                   sb.setCharAt(j--,'0');
+                   sb.setCharAt(j--,'2');
+                   sb.setCharAt(j--,'%');
+               }
+               else sb.setCharAt(j--,sb.charAt(i));
+               i--;
+           }
+           return sb.toString();
     }
-}
 
 
-class Main2_1 {
-    /**
-     * 自己实现替换函数
-     * @param str
-     * @return
-     */
-    public String replaceSpace(StringBuffer str) {
-        StringBuilder sb=new StringBuilder();
-        for(int i=0;i<str.length();i++){
-            if(str.charAt(i)==' ') sb.append("%20");
-            else sb.append(str.charAt(i));
-        }
-        return sb.toString();
-    }
+
 }
